@@ -1,0 +1,17 @@
+services:
+  poe2.laddertracker:
+    build: .
+    container_name: poe2.laddertracker
+    restart: unless-stopped
+    networks:
+      tunnel.poe: {}
+    ports:
+      - "8080:8080"
+    environment:
+      - GGG_CLIENT_ID=${GGG_CLIENT_ID}
+      - GGG_CLIENT_SECRET=${GGG_CLIENT_SECRET}
+      - GGG_CONTACT_EMAIL=${GGG_CONTACT_EMAIL}
+
+networks:
+  tunnel.poe:
+    external: true
